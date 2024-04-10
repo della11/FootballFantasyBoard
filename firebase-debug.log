@@ -26,3 +26,159 @@ Before we get started, keep in mind:
 
 [debug] [2024-04-10T15:29:08.371Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
 [debug] [2024-04-10T15:29:08.371Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2024-04-10T15:30:49.422Z] > refreshing access token with scopes: []
+[debug] [2024-04-10T15:30:49.423Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-04-10T15:30:49.423Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-10T15:30:49.561Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-04-10T15:30:49.561Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-04-10T15:30:49.574Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2024-04-10T15:30:49.574Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"fantasy-football-board","name":"fantasy-football-board"}
+[debug] [2024-04-10T15:30:50.458Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2024-04-10T15:30:50.458Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/cp.8157571571605161443"}
+[debug] [2024-04-10T15:30:50.459Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 [none]
+[debug] [2024-04-10T15:30:51.318Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 200
+[debug] [2024-04-10T15:30:51.319Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 {"name":"operations/cp.8157571571605161443"}
+[debug] [2024-04-10T15:30:51.822Z] [Project Creation Poller] Retrying task index 0
+[debug] [2024-04-10T15:30:51.823Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 [none]
+[debug] [2024-04-10T15:30:52.157Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 200
+[debug] [2024-04-10T15:30:52.157Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 {"name":"operations/cp.8157571571605161443"}
+[debug] [2024-04-10T15:30:53.172Z] [Project Creation Poller] Retrying task index 0
+[debug] [2024-04-10T15:30:53.172Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 [none]
+[debug] [2024-04-10T15:30:53.493Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 200
+[debug] [2024-04-10T15:30:53.493Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 {"name":"operations/cp.8157571571605161443","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true}}
+[debug] [2024-04-10T15:30:55.504Z] [Project Creation Poller] Retrying task index 0
+[debug] [2024-04-10T15:30:55.504Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 [none]
+[debug] [2024-04-10T15:30:55.890Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 200
+[debug] [2024-04-10T15:30:55.890Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/cp.8157571571605161443 {"name":"operations/cp.8157571571605161443","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"718071349391","projectId":"fantasy-football-board","lifecycleState":"ACTIVE","name":"fantasy-football-board","createTime":"2024-04-10T15:30:51.207979Z"}}
+[debug] [2024-04-10T15:30:55.892Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board:addFirebase [none]
+[debug] [2024-04-10T15:30:59.312Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board:addFirebase 200
+[debug] [2024-04-10T15:30:59.312Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board:addFirebase {"name":"operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw"}
+[debug] [2024-04-10T15:30:59.313Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw [none]
+[debug] [2024-04-10T15:31:02.854Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw 200
+[debug] [2024-04-10T15:31:02.855Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw {"name":"operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw"}
+[debug] [2024-04-10T15:31:03.362Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-04-10T15:31:03.363Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw [none]
+[debug] [2024-04-10T15:31:04.030Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw 200
+[debug] [2024-04-10T15:31:04.030Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw {"name":"operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw"}
+[debug] [2024-04-10T15:31:05.038Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-04-10T15:31:05.038Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw [none]
+[debug] [2024-04-10T15:31:05.632Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw 200
+[debug] [2024-04-10T15:31:05.632Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw {"name":"operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw"}
+[debug] [2024-04-10T15:31:07.642Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-04-10T15:31:07.643Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw [none]
+[debug] [2024-04-10T15:31:08.022Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw 200
+[debug] [2024-04-10T15:31:08.022Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw {"name":"operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw"}
+[debug] [2024-04-10T15:31:12.033Z] [Add Firebase Poller] Retrying task index 0
+[debug] [2024-04-10T15:31:12.034Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw [none]
+[debug] [2024-04-10T15:31:12.472Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw 200
+[debug] [2024-04-10T15:31:12.472Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw {"name":"operations/workflows/ZDE3ZDRkOWYtZGJmYi00MzlmLWJiMjYtNzQ4MjEwYjVkN2Qw","done":true,"response":{"@type":"type.googleapis.com/google.firebase.service.v1beta1.FirebaseProject","projectId":"fantasy-football-board","projectNumber":"718071349391","displayName":"fantasy-football-board","name":"projects/fantasy-football-board","resources":{"hostingSite":"fantasy-football-board"}}}
+[info] 
+[info] === Your Firebase project is ready! ===
+[info] 
+[info] Project information:
+[info]    - Project ID: fantasy-football-board
+[info]    - Project Name: fantasy-football-board
+[info] 
+[info] Firebase console is available at
+[info] https://console.firebase.google.com/project/fantasy-football-board/overview
+[info] i  Using project fantasy-football-board (fantasy-football-board) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-04-10T15:31:12.495Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-10T15:31:12.495Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/fantasy-football-board
+[debug] [2024-04-10T15:31:14.027Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-10T15:31:14.027Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com [omitted]
+[warn] !  database: missing required API firebasedatabase.googleapis.com. Enabling now... 
+[debug] [2024-04-10T15:31:14.028Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com:enable [none]
+[debug] [2024-04-10T15:31:14.028Z] >>> [apiv2][(partial)header] POST https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com:enable x-goog-quota-user=projects/fantasy-football-board
+[debug] [2024-04-10T15:31:15.734Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com:enable 200
+[debug] [2024-04-10T15:31:15.734Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com:enable [omitted]
+[debug] [2024-04-10T15:31:25.744Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-04-10T15:31:25.744Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/fantasy-football-board
+[debug] [2024-04-10T15:31:26.592Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com 200
+[debug] [2024-04-10T15:31:26.592Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/fantasy-football-board/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-04-10T15:31:26.596Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board [none]
+[debug] [2024-04-10T15:31:27.414Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board 200
+[debug] [2024-04-10T15:31:27.414Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board {"projectId":"fantasy-football-board","projectNumber":"718071349391","displayName":"fantasy-football-board","name":"projects/fantasy-football-board","resources":{"hostingSite":"fantasy-football-board"},"state":"ACTIVE","etag":"1_5b3c8d86-3dae-44d9-8641-c1812b2810c8"}
+[debug] [2024-04-10T15:32:03.222Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances databaseId=fantasy-football-board-default-rtdb&validateOnly=true
+[debug] [2024-04-10T15:32:03.222Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances {"type":"default_database"}
+[debug] [2024-04-10T15:32:04.189Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances 200
+[debug] [2024-04-10T15:32:04.189Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances {"name":"projects/718071349391/locations/europe-west1/instances/fantasy-football-board-default-rtdb","project":"projects/718071349391","databaseUrl":"https://fantasy-football-board-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[debug] [2024-04-10T15:32:04.190Z] >>> [apiv2][query] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances databaseId=fantasy-football-board-default-rtdb
+[debug] [2024-04-10T15:32:04.190Z] >>> [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances {"type":"default_database"}
+[debug] [2024-04-10T15:32:04.760Z] <<< [apiv2][status] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances 200
+[debug] [2024-04-10T15:32:04.760Z] <<< [apiv2][body] POST https://firebasedatabase.googleapis.com/v1beta/projects/fantasy-football-board/locations/europe-west1/instances {"name":"projects/718071349391/locations/europe-west1/instances/fantasy-football-board-default-rtdb","project":"projects/718071349391","databaseUrl":"https://fantasy-football-board-default-rtdb.europe-west1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2024-04-10T15:32:11.518Z] >>> [apiv2][query] GET https://fantasy-football-board-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json [none]
+[debug] [2024-04-10T15:32:12.685Z] <<< [apiv2][status] GET https://fantasy-football-board-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json 200
+[debug] [2024-04-10T15:32:12.685Z] <<< [apiv2][body] GET https://fantasy-football-board-default-rtdb.europe-west1.firebasedatabase.app/.settings/rules.json [stream]
+[info] +  Database Rules for fantasy-football-board-default-rtdb have been written to database.rules.json. 
+[info] Future modifications to database.rules.json will update Realtime Database Security Rules when you run
+[info] firebase deploy.
+[info] 
+=== Hosting Setup
+[debug] [2024-04-10T15:32:12.690Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board [none]
+[debug] [2024-04-10T15:32:12.926Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board 200
+[debug] [2024-04-10T15:32:12.926Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fantasy-football-board {"projectId":"fantasy-football-board","projectNumber":"718071349391","displayName":"fantasy-football-board","name":"projects/fantasy-football-board","resources":{"hostingSite":"fantasy-football-board","realtimeDatabaseInstance":"fantasy-football-board-default-rtdb"},"state":"ACTIVE","etag":"1_5b3c8d86-3dae-44d9-8641-c1812b2810c8"}
+[info] 
+[info] i  Detected a .git folder at C:\DR11\angular\FootballFantasyBoard 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=645195429&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2024-04-10T15:33:07.865Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2024-04-10T15:33:07.865Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2024-04-10T15:33:08.141Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2024-04-10T15:33:08.141Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2024-04-10T15:33:08.160Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2024-04-10T15:33:08.433Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2024-04-10T15:33:08.433Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"della11","id":83588948,"node_id":"MDQ6VXNlcjgzNTg4OTQ4","avatar_url":"https://avatars.githubusercontent.com/u/83588948?v=4","gravatar_id":"","url":"https://api.github.com/users/della11","html_url":"https://github.com/della11","followers_url":"https://api.github.com/users/della11/followers","following_url":"https://api.github.com/users/della11/following{/other_user}","gists_url":"https://api.github.com/users/della11/gists{/gist_id}","starred_url":"https://api.github.com/users/della11/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/della11/subscriptions","organizations_url":"https://api.github.com/users/della11/orgs","repos_url":"https://api.github.com/users/della11/repos","events_url":"https://api.github.com/users/della11/events{/privacy}","received_events_url":"https://api.github.com/users/della11/received_events","type":"User","site_admin":false,"name":"fabio.dellarosa","company":"Blazar Group","blog":"","location":"Italy","email":"fabiodellarosa126@gmail.com","hireable":null,"bio":null,"twitter_username":null,"public_repos":5,"public_gists":0,"followers":1,"following":6,"created_at":"2021-05-03T12:36:09Z","updated_at":"2024-04-07T18:31:49Z","private_gists":0,"total_private_repos":3,"owned_private_repos":3,"disk_usage":27216,"collaborators":1,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as della11 
+[info] 
+[debug] [2024-04-10T15:33:51.512Z] >>> [apiv2][query] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key type=owner
+[debug] [2024-04-10T15:33:51.714Z] <<< [apiv2][status] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key 404
+[debug] [2024-04-10T15:33:51.715Z] <<< [apiv2][body] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/actions/secrets#get-a-repository-public-key"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2024-04-10T15:33:59.792Z] >>> [apiv2][query] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key type=owner
+[debug] [2024-04-10T15:34:00.012Z] <<< [apiv2][status] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key 404
+[debug] [2024-04-10T15:34:00.012Z] <<< [apiv2][body] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/actions/secrets#get-a-repository-public-key"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2024-04-10T15:34:00.783Z] >>> [apiv2][query] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key type=owner
+[debug] [2024-04-10T15:34:00.936Z] <<< [apiv2][status] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key 404
+[debug] [2024-04-10T15:34:00.936Z] <<< [apiv2][body] GET https://api.github.com/repos/della11/FootballFantasyBoard/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/actions/secrets#get-a-repository-public-key"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
