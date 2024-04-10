@@ -1,0 +1,49 @@
+/* Stili per il calendario delle partite */
+.schedule-container {
+  flex: 1;
+  color: #1C115E;
+}
+
+.scrollable-container {
+  max-height: 400px; /* Altezza massima per rendere il contenitore scrollabile */
+  overflow-y: auto;
+  background-color: #f0f0f0;
+}
+
+.matchday {
+  margin-bottom: 5px;
+}
+
+.match {
+  background-color: #f0f0f0;
+  color: #141414;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+/* Stili per la classifica */
+.standings {
+  flex: 1;
+  background-color: #00E8DA;
+  color:  #FBFBFD;
+}
+
+.team {
+  background-color: #f0f0f0;
+  color: #141414;
+}
+
+.score {
+  background-color: #00E8DA;
+  color: #141414;
+}
+
+.bg-navbar{
+  background-color: #1C115E;
+}
+
+.img-mini {
+  height: 15px;
+  width: 15px;
+}
+
